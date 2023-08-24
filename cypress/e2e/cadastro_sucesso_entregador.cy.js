@@ -16,6 +16,7 @@ describe('cenario', () => {
     CadastroEntregador.validateFieldCPFIncorrect();
     CadastroEntregador.validateFieldEmailInvalid();
     CadastroEntregador.validateCEPInvalid();
+    CadastroEntregador.validatefieldWhatsapp();
   });
   
 })
