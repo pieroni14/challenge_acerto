@@ -31,7 +31,7 @@ class CadastroEntregador{
 
         this.checkAlertErroCEPInvalid = ':nth-child(1) > .alert-error'
         this.checkAlertErroCPFInvalid =  '.alert-error'
-        this.checkAlertCEPinvalido = ':nth-child(2) > :nth-child(1) > .alert-error'
+        this.checkAlertCEPinvalid = ':nth-child(2) > :nth-child(1) > .alert-error'
 
         this.cepField = ':nth-child(3) > :nth-child(2) > :nth-child(1) > input'
 
@@ -42,7 +42,7 @@ class CadastroEntregador{
     // Cenario cadastro com sucesso do entregador.
     typeCadastroDados(){
         cy.get(this.fullNameInput).type("Joaquinho da Silva")
-        cy.get(this.cpfNumberInput).type("11315391686")
+        cy.get(this.cpfNumberInput).type("39124672009")
         cy.get(this.emailInput).type("joaquim_da_silva@gmail.com")
         cy.get(this.whatsappInput).type("31999999999")
     }
@@ -86,7 +86,7 @@ class CadastroEntregador{
     }
     validateFieldEmailInvalid(){
         cy.get(this.cpfNumberInput).clear()
-        cy.get(this.cpfNumberInput).type("11315391686")
+        cy.get(this.cpfNumberInput).type("39124672009")
         cy.get(this.emailInput).type("joaquim_da_silva@test")
         cy.get(this.buttonSucess).click()
         cy.get(this.checkAlertErroCEPInvalid).contains('Oops! Email com formato inválido.')
@@ -96,7 +96,7 @@ class CadastroEntregador{
         cy.get(this.emailInput).type("joaquim_da_silva@test.com")
         cy.get(this.cepField).type('124123124213')
         cy.get(this.searchCEPbutton).click()
-        cy.get(this.checkAlertCEPinvalido).contains('Informe um CEP válido')
+        cy.get(this.checkAlertCEPinvalid).contains('Informe um CEP válido')
         cy.get(this.cepField).clear()
         cy.get(this.cepField).type('35700346')
         cy.get(this.searchCEPbutton).click()
@@ -109,7 +109,7 @@ class CadastroEntregador{
         cy.get(this.buttonSucess).click()
         cy.get(this.checkAlertError08Whatsapp).contains('Oops! Whatsapp com formato incorreto')
         cy.get(this.whatsappInput).clear()
-        cy.get(this.whatsappInput).type('31994923990')
+        cy.get(this.whatsappInput).type('31999999999')
         cy.get(this.buttonSucess).click();
     }
 }
